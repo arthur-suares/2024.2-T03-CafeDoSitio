@@ -11,8 +11,8 @@ const port = process.env.PORT || 3002;
 const app = express();
 
 const allowedOrigins = [
-  'http://localhost:3000',
-  'http://localhost:3001'
+  '2024-2-t03-cafe-do-sitio-frontend.vercel.app',
+  '2024-2-t03-cafe-do-sitio-frontend-admin.vercel.app'
 ];
 
 const corsOptionsDelegate = function(req, callback) {
