@@ -10,7 +10,7 @@ const PublicRoutes = () => {
   return(
     <PublicLayout>
       <Routes>
-          <Route path="/" element={<BlogPage />} />
+          <Route path="/" element={<ContactPage />} />
           <Route path="/contatos" element={<ContactPage />} />
           <Route path="/historia" element={<NossaHistoria />} />
       </Routes>
