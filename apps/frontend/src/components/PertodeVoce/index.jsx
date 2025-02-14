@@ -168,19 +168,19 @@ function PertodeVoce() {
   // Isso aciona esse useEffect, que coloca um marcador na localização do usuario
   useEffect(() => {
     if (!mapRef.current || location.lat === null || location.lng === null) return;
-
+  
     if (markerRef.current) {
       mapRef.current.removeLayer(markerRef.current);
+      markerRef.current = null;
     }
-    
-    setTimeout(() => {
-      markerRef.current = L.marker([location.lat, location.lng], {icon: BlueIcon})
-        .addTo(mapRef.current)
-        .bindTooltip("Você está aqui!", { permanent: false, direction: "top" });
   
-      mapRef.current.setView([location.lat, location.lng], 12);
-    }, 300)
+    markerRef.current = L.marker([location.lat, location.lng], { icon: BlueIcon })
+      .addTo(mapRef.current)
+      .bindTooltip("Você está aqui!", { permanent: false, direction: "top" });
+  
+    mapRef.current.setView([location.lat, location.lng], 12);
   }, [location]);
+  
 
   useEffect(() => {
     if (!mapRef.current) return;
