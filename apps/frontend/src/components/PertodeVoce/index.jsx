@@ -169,17 +169,21 @@ function PertodeVoce() {
   useEffect(() => {
     if (!mapRef.current || location.lat === null || location.lng === null) return;
   
+    // Remover o marcador antigo, se existir
     if (markerRef.current) {
       mapRef.current.removeLayer(markerRef.current);
-      markerRef.current = null;
+      markerRef.current = null; // Certifica-se de que a referência foi apagada
     }
   
-    markerRef.current = L.marker([location.lat, location.lng], { icon: BlueIcon })
-      .addTo(mapRef.current)
-      .bindTooltip("Você está aqui!", { permanent: false, direction: "top" });
+    setTimeout(() => {
+      markerRef.current = L.marker([location.lat, location.lng], { icon: BlueIcon })
+        .addTo(mapRef.current)
+        .bindTooltip("Você está aqui!", { permanent: false, direction: "top" });
   
-    mapRef.current.setView([location.lat, location.lng], 12);
+      mapRef.current.setView([location.lat, location.lng], 12);
+    }, 300);
   }, [location]);
+  
   
 
   useEffect(() => {
