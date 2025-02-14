@@ -35,8 +35,19 @@ function PertodeVoce() {
   const mapContainerRef = useRef(null);
   const markerRef = useRef(null);
   
+  //Carregando marcador vermelho
   const customIcon = L.icon({
     iconUrl: "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png", // Ícone vermelho
+    shadowUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+    iconSize: [25, 41], // Tamanho do ícone
+    iconAnchor: [12, 41], // Ponto de ancoragem
+    popupAnchor: [1, -34], // Posição do popup
+    shadowSize: [41, 41] // Tamanho da sombra
+  });
+
+  //Carregando marcador azul
+  const BlueIcon = L.icon({
+    iconUrl: "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-blue.png", // Ícone azul
     shadowUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
     iconSize: [25, 41], // Tamanho do ícone
     iconAnchor: [12, 41], // Ponto de ancoragem
@@ -163,7 +174,7 @@ function PertodeVoce() {
     }
     
     setTimeout(() => {
-      markerRef.current = L.marker([location.lat, location.lng])
+      markerRef.current = L.marker([location.lat, location.lng], {icon: BlueIcon})
         .addTo(mapRef.current)
         .bindTooltip("Você está aqui!", { permanent: false, direction: "top" });
   
