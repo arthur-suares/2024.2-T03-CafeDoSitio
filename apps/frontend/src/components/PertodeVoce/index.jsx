@@ -161,12 +161,14 @@ function PertodeVoce() {
     if (markerRef.current) {
       mapRef.current.removeLayer(markerRef.current);
     }
-
-    markerRef.current = L.marker([location.lat, location.lng])
-      .addTo(mapRef.current)
-      .bindTooltip("Você está aqui!", { permanent: false, direction: "top" });
-
-    mapRef.current.setView([location.lat, location.lng], 12);
+    
+    setTimeout(() => {
+      markerRef.current = L.marker([location.lat, location.lng])
+        .addTo(mapRef.current)
+        .bindTooltip("Você está aqui!", { permanent: false, direction: "top" });
+  
+      mapRef.current.setView([location.lat, location.lng], 12);
+    }, 300)
   }, [location]);
 
   useEffect(() => {
