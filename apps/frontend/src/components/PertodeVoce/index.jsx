@@ -166,23 +166,23 @@ function PertodeVoce() {
 
   // Quando o usuario permite a localização, 'location' fica verdadeiro e muda de estado
   // Isso aciona esse useEffect, que coloca um marcador na localização do usuario
-  useEffect(() => {
-    if (!mapRef.current || location.lat === null || location.lng === null) return;
+  // useEffect(() => {
+  //   if (!mapRef.current || location.lat === null || location.lng === null) return;
   
-    // Remover o marcador antigo, se existir
-    if (markerRef.current) {
-      mapRef.current.removeLayer(markerRef.current);
-      markerRef.current = null; // Certifica-se de que a referência foi apagada
-    }
+  //   // Remover o marcador antigo, se existir
+  //   if (markerRef.current) {
+  //     mapRef.current.removeLayer(markerRef.current);
+  //     markerRef.current = null; // Certifica-se de que a referência foi apagada
+  //   }
   
-    setTimeout(() => {
-      markerRef.current = L.marker([location.lat, location.lng], { icon: BlueIcon })
-        .addTo(mapRef.current)
-        .bindTooltip("Você está aqui!", { permanent: false, direction: "top" });
+  //   setTimeout(() => {
+  //     markerRef.current = L.marker([location.lat, location.lng], { icon: BlueIcon })
+  //       .addTo(mapRef.current)
+  //       .bindTooltip("Você está aqui!", { permanent: false, direction: "top" });
   
-      mapRef.current.setView([location.lat, location.lng], 12);
-    }, 300);
-  }, [location]);
+  //     mapRef.current.setView([location.lat, location.lng], 12);
+  //   }, 300);
+  // }, [location]);
   
   
 
@@ -214,7 +214,7 @@ function PertodeVoce() {
         mapRef.current.removeLayer(markerRef.current);
       }
   
-      markerRef.current = L.marker([location.lat, location.lng])
+      markerRef.current = L.marker([location.lat, location.lng], {icon: BlueIcon})
         .addTo(mapRef.current)
         .bindTooltip("Você está aqui!", { permanent: false, direction: "top" });
       locations.push([location.lat, location.lng]);
@@ -226,7 +226,7 @@ function PertodeVoce() {
         mapRef.current.removeLayer(markerRef.current);
       }
   
-      markerRef.current = L.marker([lat, lon])
+      markerRef.current = L.marker([lat, lon], {icon: BlueIcon})
         .addTo(mapRef.current)
         .bindTooltip("Localização do CEP", { permanent: false, direction: "top" });
       locations.push([lat, lon]);
