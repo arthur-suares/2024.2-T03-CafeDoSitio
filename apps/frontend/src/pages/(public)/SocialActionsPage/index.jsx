@@ -6,7 +6,7 @@ import Sticker from "../../../components/Sticker";
 import MiniSticker from "../../../components/MiniSticker";
 import { TimelineCard } from "../../../components/TimelineCard";
 import imagemArvores from "../../../assets/SítioVerde_1.jpg"
-import imagemVideo from "../../../assets/video.jpg"
+import imagemPlacasSolares from "../../../assets/SítioVerde_2.jpg"
 import imagemBazar from "../../../assets/bazar.jpg"
 import imagemHorta from "../../../assets/horta.jpg"
 import imagemGrafico from "../../../assets/grafico.png"
@@ -80,7 +80,7 @@ export default function SocialActionsPage() {
                 </DivImagem>
                 <DivStyled>
                     <Sticker title={"PLACAS FOTOVOLTAICAS"} text={"Lorem ipsum dolor sit amet, consectetuer adipiscingelit, sed diam nonummy nibh euismod tincidunt utlaoreet dolore magna aliquam erat volutpat. Ut wisienim ad minim veniam."} />
-                    <img src={imagemVideo} alt="video falso" style={{ width: "100%", height: "auto", objectFit: "contain" }} />
+                    <img src={imagemPlacasSolares} alt="video falso" style={{ width: "100%", height: "auto", objectFit: "contain" }} />
                 </DivStyled>
                 <DivStyled2>
                     <img src={imagemGrafico} alt="grafico" style={{ width: "100%", height: "auto", objectFit: "contain" }} />
